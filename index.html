@@ -2,10 +2,11 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- ===== Google Search Console Verification ===== -->
   <meta name="google-site-verification" content="mLworcsiofOhMsDaAZ9Vzi7Swi1QErd75vJHjTm8bxw" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>مولد QR Code آنلاین | ساخت کیوآر کد رایگان | QR Code Generator</title>
 
@@ -57,7 +58,7 @@
   }
   </script>
 
-  <!-- QR Code Library -->
+  <!-- QR Code Library (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 
   <style>
@@ -66,7 +67,6 @@
       --text: #1a202c; --text-muted: #718096; --border: #e2e8f0;
       --accent-1: #6366f1; --accent-2: #8b5cf6;
       --accent-glow: rgba(99, 102, 241, 0.25);
-      --code-bg: #1a1d23; --code-text: #7dd3a0;
       --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
       --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
     }
@@ -75,7 +75,6 @@
       --text: #f0f0f0; --text-muted: #8a8a8a; --border: #262626;
       --accent-1: #818cf8; --accent-2: #a78bfa;
       --accent-glow: rgba(129, 140, 248, 0.3);
-      --code-bg: #0d0d0d; --code-text: #86efac;
       --shadow-md: 0 4px 20px rgba(0,0,0,0.6);
       --shadow-lg: 0 20px 60px rgba(0,0,0,0.8);
     }
@@ -207,8 +206,7 @@
       text-transform: uppercase; letter-spacing: 0.5px;
     }
     input[type="text"], input[type="url"], input[type="email"],
-    input[type="tel"], input[type="number"], input[type="date"],
-    input[type="time"], textarea, select {
+    input[type="tel"], input[type="number"], textarea, select {
       width: 100%; padding: 10px 12px;
       border: 1px solid var(--border); background: var(--surface);
       color: var(--text); font-size: 14px;
@@ -220,13 +218,6 @@
     }
     textarea { resize: vertical; min-height: 80px; }
 
-    .field-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    /* QR Preview Panel */
     .qr-panel {
       border: 1px solid var(--border);
       background: var(--surface-2);
@@ -240,8 +231,9 @@
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 16px;
       min-height: 300px;
+      width: 100%;
     }
-    .qr-preview canvas {
+    .qr-preview canvas, .qr-preview img {
       max-width: 100%; height: auto;
       display: block;
     }
@@ -249,6 +241,11 @@
       color: #a0aec0; font-size: 13px;
       text-align: center; padding: 40px 20px;
       font-style: italic;
+    }
+    .qr-error {
+      color: #e53e3e; font-size: 12px;
+      text-align: center; padding: 20px;
+      line-height: 1.6;
     }
 
     .qr-settings { margin-bottom: 16px; }
@@ -347,7 +344,6 @@
       .promo-url { font-size: 11px; padding: 6px 10px; }
       .promo-icon { font-size: 22px; }
       .type-btn { font-size: 11px; padding: 8px 10px; }
-      .field-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -380,10 +376,7 @@
 
     <div class="main-grid">
 
-      <!-- Left: Type & Fields -->
       <div>
-
-        <!-- Type Tabs -->
         <div class="type-tabs" id="typeTabs">
           <button class="type-btn active" data-type="text" data-i18n="typeText">📝 متن</button>
           <button class="type-btn" data-type="url" data-i18n="typeUrl">🔗 لینک</button>
@@ -405,12 +398,9 @@
           <button class="type-btn" data-type="tiktok" data-i18n="typeTiktok">🎵 تیک‌تاک</button>
         </div>
 
-        <!-- Fields -->
         <div class="fields" id="fields"></div>
-
       </div>
 
-      <!-- Right: QR Preview & Settings -->
       <div class="qr-panel">
 
         <div class="qr-preview" id="qrPreview">
@@ -454,24 +444,23 @@
 
     </div>
 
-    <!-- SEO Content -->
     <section class="seo-content">
       <h2 data-i18n="seoH2">درباره‌ی مولد QR Code</h2>
       <p data-i18n="seoP1">QR Code (کد کیوآر) یک بارکد دوبعدی است که می‌تواند اطلاعات مختلفی مثل متن، لینک، شماره تماس، آدرس ایمیل و غیره را در خود ذخیره کند. این ابزار آنلاین و رایگان به شما امکان می‌دهد تا در لحظه QR Code بسازید و آن را با فرمت PNG دانلود کنید.</p>
 
       <h3 data-i18n="seoH3Types">انواع QR Code پشتیبانی‌شده</h3>
       <ul>
-        <li data-i18n="seoLi1">📝 <strong>متن ساده</strong> — هر متنی، حتی چند خطی</li>
-        <li data-i18n="seoLi2">🔗 <strong>لینک URL</strong> — وب‌سایت، فروشگاه، مقاله</li>
-        <li data-i18n="seoLi3">📧 <strong>ایمیل</strong> — آدرس ایمیل آماده</li>
-        <li data-i18n="seoLi4">💬 <strong>پیامک SMS</strong> — شماره + متن آماده</li>
-        <li data-i18n="seoLi5">📞 <strong>تماس تلفنی</strong> — تماس مستقیم با یک اسکن</li>
-        <li data-i18n="seoLi6">📶 <strong>وای‌فای</strong> — اتصال خودکار به شبکه</li>
-        <li data-i18n="seoLi7">👤 <strong>کارت ویزیت vCard</strong> — ذخیره مستقیم مخاطب</li>
-        <li data-i18n="seoLi8">📍 <strong>موقعیت GPS</strong> — مختصات جغرافیایی</li>
-        <li data-i18n="seoLi9">📅 <strong>رویداد تقویم</strong> — تاریخ و ساعت</li>
-        <li data-i18n="seoLi10">💰 <strong>ارز دیجیتال</strong> — آدرس کیف پول</li>
-        <li data-i18n="seoLi11">📱 <strong>شبکه‌های اجتماعی</strong> — فیسبوک، اینستاگرام، لینکدین، واتساپ، یوتیوب، تلگرام، اسپاتیفای، تیک‌تاک</li>
+        <li data-i18n="seoLi1">📝 متن ساده — هر متنی، حتی چند خطی</li>
+        <li data-i18n="seoLi2">🔗 لینک URL — وب‌سایت، فروشگاه، مقاله</li>
+        <li data-i18n="seoLi3">📧 ایمیل — آدرس ایمیل آماده</li>
+        <li data-i18n="seoLi4">💬 پیامک SMS — شماره + متن آماده</li>
+        <li data-i18n="seoLi5">📞 تماس تلفنی — تماس مستقیم با یک اسکن</li>
+        <li data-i18n="seoLi6">📶 وای‌فای — اتصال خودکار به شبکه</li>
+        <li data-i18n="seoLi7">👤 کارت ویزیت vCard — ذخیره مستقیم مخاطب</li>
+        <li data-i18n="seoLi8">📍 موقعیت GPS — مختصات جغرافیایی</li>
+        <li data-i18n="seoLi9">📅 رویداد تقویم — تاریخ و ساعت</li>
+        <li data-i18n="seoLi10">💰 ارز دیجیتال — آدرس کیف پول</li>
+        <li data-i18n="seoLi11">📱 شبکه‌های اجتماعی — فیسبوک، اینستاگرام، لینکدین، واتساپ، یوتیوب، تلگرام، اسپاتیفای، تیک‌تاک</li>
       </ul>
 
       <h3 data-i18n="seoH3Faq">سوالات متداول</h3>
@@ -612,6 +601,7 @@
 
     let currentType = 'text';
     let currentDataUrl = null;
+    let generateTimer = null;
 
     const html = document.documentElement;
     const titleEl = document.getElementById('title');
@@ -831,13 +821,11 @@
         btn.classList.toggle('active', btn.dataset.lang === lang);
       });
 
-      // Update all data-i18n elements
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         el.textContent = t(key);
       });
 
-      // Re-render fields to update labels
       renderFields();
     }
 
@@ -886,18 +874,18 @@
 
         input.addEventListener('input', () => {
           saveField(field.id, input.value);
-          generateQR();
+          scheduleGenerate();
         });
         input.addEventListener('change', () => {
           saveField(field.id, input.value);
-          generateQR();
+          scheduleGenerate();
         });
 
         group.appendChild(input);
         fieldsEl.appendChild(group);
       });
 
-      generateQR();
+      scheduleGenerate();
     }
 
     function saveField(id, value) {
@@ -916,10 +904,22 @@
       return data;
     }
 
+    function scheduleGenerate() {
+      if (generateTimer) clearTimeout(generateTimer);
+      generateTimer = setTimeout(generateQR, 200);
+    }
+
     // ============ QR GENERATION ============
     async function generateQR() {
       const type = TYPES[currentType];
       if (!type) return;
+
+      if (typeof QRCode === 'undefined') {
+        qrPreview.innerHTML = '<div class="qr-error">⚠️ کتابخانه QR لود نشده. لطفاً صفحه رو رفرش کن یا اینترنتت رو چک کن.</div>';
+        downloadBtn.disabled = true;
+        copyBtn.disabled = true;
+        return;
+      }
 
       const data = getFormData();
       const text = type.build(data);
@@ -950,9 +950,10 @@
         downloadBtn.disabled = false;
         copyBtn.disabled = false;
       } catch (err) {
-        qrPreview.innerHTML = `<div class="qr-empty">⚠️ ${err.message || 'Error'}</div>`;
+        qrPreview.innerHTML = `<div class="qr-error">⚠️ خطا: ${err.message || 'مشکلی پیش آمد'}</div>`;
         downloadBtn.disabled = true;
         copyBtn.disabled = true;
+        console.error('QR generation error:', err);
       }
     }
 
@@ -968,8 +969,8 @@
 
     // ============ SETTINGS ============
     [qrSize, qrLevel, qrFg, qrBg, qrMargin].forEach(el => {
-      el.addEventListener('input', generateQR);
-      el.addEventListener('change', generateQR);
+      el.addEventListener('input', scheduleGenerate);
+      el.addEventListener('change', scheduleGenerate);
     });
 
     // ============ DOWNLOAD ============
