@@ -58,9 +58,6 @@
   }
   </script>
 
-  <!-- QR Code Library (CDN) -->
-  <script src="qrcode.min.js"></script>
-
   <style>
     :root {
       --bg: #f5f7fa; --surface: #ffffff; --surface-2: #f8fafc;
@@ -346,6 +343,9 @@
       .type-btn { font-size: 11px; padding: 8px 10px; }
     }
   </style>
+
+  <!-- QR Code Library (Local) -->
+  <script src="qrcode.min.js"></script>
 </head>
 <body>
 
@@ -910,12 +910,12 @@
     }
 
     // ============ QR GENERATION ============
-    async function generateQR() {
+    function generateQR() {
       const type = TYPES[currentType];
       if (!type) return;
 
       if (typeof QRCode === 'undefined') {
-        qrPreview.innerHTML = '<div class="qr-error">⚠️ کتابخانه QR لود نشده. لطفاً صفحه رو رفرش کن یا اینترنتت رو چک کن.</div>';
+        qrPreview.innerHTML = '<div class="qr-error">⚠️ کتابخانه QR لود نشده. لطفاً صفحه رو رفرش کن.</div>';
         downloadBtn.disabled = true;
         copyBtn.disabled = true;
         return;
@@ -933,22 +933,29 @@
       }
 
       try {
-        const canvas = document.createElement('canvas');
-        await QRCode.toCanvas(canvas, text, {
-          width: parseInt(qrSize.value) || 512,
-          margin: parseInt(qrMargin.value) || 2,
-          errorCorrectionLevel: qrLevel.value || 'M',
-          color: {
-            dark: qrFg.value || '#000000',
-            light: qrBg.value || '#ffffff'
-          }
+        const size = parseInt(qrSize.value) || 512;
+        qrPreview.innerHTML = '';
+
+        const qrContainer = document.createElement('div');
+        qrPreview.appendChild(qrContainer);
+
+        new QRCode(qrContainer, {
+          text: text,
+          width: size,
+          height: size,
+          colorDark: qrFg.value || '#000000',
+          colorLight: qrBg.value || '#ffffff',
+          correctLevel: QRCode.CorrectLevel[qrLevel.value || 'M']
         });
 
-        qrPreview.innerHTML = '';
-        qrPreview.appendChild(canvas);
-        currentDataUrl = canvas.toDataURL('image/png');
-        downloadBtn.disabled = false;
-        copyBtn.disabled = false;
+        setTimeout(() => {
+          const canvas = qrContainer.querySelector('canvas');
+          if (canvas) {
+            currentDataUrl = canvas.toDataURL('image/png');
+            downloadBtn.disabled = false;
+            copyBtn.disabled = false;
+          }
+        }, 100);
       } catch (err) {
         qrPreview.innerHTML = `<div class="qr-error">⚠️ خطا: ${err.message || 'مشکلی پیش آمد'}</div>`;
         downloadBtn.disabled = true;
