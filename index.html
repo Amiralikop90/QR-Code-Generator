@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== Google Search Console Verification ===== -->
+  <meta name="google-site-verification" content="mLworcsiofOhMsDaAZ9Vzi7Swi1QErd75vJHjTm8bxw" />
+
+  <title>مولد QR Code آنلاین | ساخت کیوآر کد رایگان | QR Code Generator</title>
+
+  <meta name="description" content="مولد آنلاین و رایگان QR Code — ساخت کیوآر کد برای متن، لینک، ایمیل، پیامک، وای‌فای، کارت ویزیت، شبکه‌های اجتماعی و بیشتر. دانلود PNG. پشتیبانی از ۳ زبان.">
+  <meta name="keywords" content="QR Code Generator, مولد QR Code, ساخت کیوآر کد, QR کد آنلاین, تولید QR, QR Code رایگان, کیوآر کد ساز">
+  <meta name="author" content="Amirali Kamani">
+  <meta name="publisher" content="psoa.ir">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <link rel="canonical" href="https://amiralikop90.github.io/QR-Code-Generator/">
+  <link rel="alternate" hreflang="fa" href="https://amiralikop90.github.io/QR-Code-Generator/">
+  <link rel="alternate" hreflang="en" href="https://amiralikop90.github.io/QR-Code-Generator/?lang=en">
+  <link rel="alternate" hreflang="zh" href="https://amiralikop90.github.io/QR-Code-Generator/?lang=zh">
+  <link rel="alternate" hreflang="x-default" href="https://amiralikop90.github.io/QR-Code-Generator/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://amiralikop90.github.io/QR-Code-Generator/">
+  <meta property="og:title" content="مولد QR Code آنلاین — ساخت کیوآر کد رایگان">
+  <meta property="og:description" content="ساخت QR Code برای متن، لینک، ایمیل، پیامک، وای‌فای، کارت ویزیت و شبکه‌های اجتماعی. دانلود PNG.">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:site_name" content="QR Code Generator">
+  <meta property="og:image" content="https://psoa.ir/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="مولد QR Code آنلاین">
+  <meta name="twitter:description" content="ساخت QR Code رایگان برای همه‌چیز. دانلود PNG.">
+  <meta name="twitter:image" content="https://psoa.ir/og-image.png">
+
+  <link rel="icon" type="image/x-icon" href="https://psoa.ir/favicon.ico">
+  <link rel="apple-touch-icon" href="https://psoa.ir/favicon.ico">
+  <meta name="theme-color" content="#6366f1">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "QR Code Generator",
+    "url": "https://amiralikop90.github.io/QR-Code-Generator/",
+    "description": "مولد آنلاین رایگان QR Code — ساخت کیوآر کد برای متن، لینک، ایمیل، پیامک، وای‌فای، کارت ویزیت و شبکه‌های اجتماعی.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Amirali Kamani", "url": "https://psoa.ir" },
+    "inLanguage": ["fa", "en", "zh"]
+  }
+  </script>
+
+  <!-- QR Code Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #f5f7fa; --surface: #ffffff; --surface-2: #f8fafc;
+      --text: #1a202c; --text-muted: #718096; --border: #e2e8f0;
+      --accent-1: #6366f1; --accent-2: #8b5cf6;
+      --accent-glow: rgba(99, 102, 241, 0.25);
+      --code-bg: #1a1d23; --code-text: #7dd3a0;
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+    }
+    [data-theme="dark"] {
+      --bg: #0a0a0a; --surface: #141414; --surface-2: #1c1c1c;
+      --text: #f0f0f0; --text-muted: #8a8a8a; --border: #262626;
+      --accent-1: #818cf8; --accent-2: #a78bfa;
+      --accent-glow: rgba(129, 140, 248, 0.3);
+      --code-bg: #0d0d0d; --code-text: #86efac;
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.6);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.8);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Inter','Segoe UI','PingFang SC','Microsoft YaHei',Tahoma,sans-serif;
+      border-radius: 0 !important;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    body {
+      background: var(--bg);
+      background-image:
+        radial-gradient(circle at 20% 10%, var(--accent-glow), transparent 40%),
+        radial-gradient(circle at 80% 90%, var(--accent-glow), transparent 40%);
+      min-height: 100vh; padding: 24px;
+      display: flex; justify-content: center; align-items: center;
+      color: var(--text); overflow-x: hidden;
+    }
+    .top-bar { position: fixed; top: 20px; left: 20px; right: 20px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 12px; z-index: 100; pointer-events: none;
+    }
+    .top-bar > * { pointer-events: auto; }
+    .theme-toggle { width: 48px; height: 48px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--text); cursor: pointer; font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .theme-toggle:hover { transform: scale(1.1) rotate(15deg); }
+    .lang-switcher { display: flex; border: 1px solid var(--border);
+      background: var(--surface); box-shadow: var(--shadow-md);
+    }
+    .lang-btn { padding: 12px 16px; border: none;
+      border-left: 1px solid var(--border); background: transparent;
+      color: var(--text-muted); cursor: pointer; font-size: 13px;
+      font-weight: 600; transition: all 0.2s; font-family: inherit;
+    }
+    .lang-btn:first-child { border-left: none; }
+    .lang-btn:hover { color: var(--text); background: var(--surface-2); }
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: #fff;
+    }
+    .container { background: var(--surface); border: 1px solid var(--border);
+      padding: 40px; max-width: 1000px; width: 100%;
+      box-shadow: var(--shadow-lg); position: relative;
+      animation: fadeIn 0.5s ease; margin-top: 40px;
+    }
+    .container::before, .container::after {
+      content: ''; position: absolute; width: 20px; height: 20px;
+      border: 2px solid var(--accent-1);
+    }
+    .container::before { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+    .container::after { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .promo-banner {
+      display: block; text-decoration: none; color: inherit;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      padding: 16px 20px; margin-bottom: 24px;
+      position: relative; overflow: hidden; cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+    .promo-banner::before {
+      content: ''; position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: shimmer 3s infinite;
+    }
+    @keyframes shimmer { 0% { left: -100%; } 100% { left: 100%; } }
+    .promo-banner:hover { transform: translateY(-2px); }
+    .promo-content { display: flex; align-items: center; gap: 14px; position: relative; z-index: 1; }
+    .promo-icon { font-size: 28px; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+    .promo-text { flex: 1; color: #fff; }
+    .promo-title { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+    .promo-subtitle { font-size: 12px; opacity: 0.9; }
+    .promo-url { font-size: 12px; font-weight: 700; color: #fff;
+      background: rgba(255,255,255,0.2); padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.3); white-space: nowrap;
+    }
+    h1 { color: var(--text); margin-bottom: 10px; text-align: center;
+      font-size: 26px; font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 30px; font-size: 14px; }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .type-tabs {
+      display: flex; flex-wrap: wrap; gap: 0;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      margin-bottom: 20px;
+    }
+    .type-btn {
+      flex: 1; min-width: fit-content;
+      padding: 10px 14px; border: none;
+      border-left: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: transparent; color: var(--text-muted);
+      cursor: pointer; font-size: 12px; font-weight: 600;
+      font-family: inherit; transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .type-btn:hover { color: var(--text); background: var(--surface); }
+    .type-btn.active {
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: #fff;
+    }
+
+    .fields { padding: 20px; border: 1px solid var(--border); background: var(--surface-2); }
+    .field-group { margin-bottom: 14px; }
+    .field-group:last-child { margin-bottom: 0; }
+    .field-label {
+      display: block; font-size: 12px; font-weight: 700;
+      color: var(--text-muted); margin-bottom: 6px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    input[type="text"], input[type="url"], input[type="email"],
+    input[type="tel"], input[type="number"], input[type="date"],
+    input[type="time"], textarea, select {
+      width: 100%; padding: 10px 12px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--text); font-size: 14px;
+      font-family: inherit; transition: border-color 0.2s;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none; border-color: var(--accent-1);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    textarea { resize: vertical; min-height: 80px; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* QR Preview Panel */
+    .qr-panel {
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      padding: 20px;
+      position: sticky; top: 24px;
+    }
+    .qr-preview {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+      min-height: 300px;
+    }
+    .qr-preview canvas {
+      max-width: 100%; height: auto;
+      display: block;
+    }
+    .qr-empty {
+      color: #a0aec0; font-size: 13px;
+      text-align: center; padding: 40px 20px;
+      font-style: italic;
+    }
+
+    .qr-settings { margin-bottom: 16px; }
+    .setting-row {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 10px;
+    }
+    .setting-row label {
+      flex: 1; font-size: 12px; color: var(--text-muted);
+      font-weight: 600;
+    }
+    .setting-row input[type="color"] {
+      width: 44px; height: 32px;
+      border: 1px solid var(--border); cursor: pointer;
+      background: var(--surface); padding: 2px;
+    }
+    .setting-row select, .setting-row input[type="number"] {
+      width: 100px; padding: 6px 10px; font-size: 13px;
+    }
+
+    .buttons {
+      display: flex; gap: 0; flex-wrap: wrap; border: 1px solid var(--border);
+    }
+    button.action {
+      padding: 12px 16px; border: none;
+      border-left: 1px solid var(--border);
+      cursor: pointer; font-size: 13px; font-weight: 500;
+      transition: all 0.25s;
+      background: var(--surface); color: var(--text);
+      display: inline-flex; align-items: center; gap: 6px;
+      justify-content: center; font-family: inherit;
+      flex: 1;
+    }
+    button.action:first-child { border-left: none; }
+    button.action:hover { background: var(--surface-2); color: var(--accent-1); }
+    button.action:active { transform: scale(0.98); }
+    button.action.primary {
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: #fff; font-weight: 600;
+    }
+    button.action.primary:hover { filter: brightness(1.1); color: #fff; }
+    button.action:disabled {
+      opacity: 0.5; cursor: not-allowed;
+    }
+
+    .seo-content { margin-top: 40px; padding-top: 30px;
+      border-top: 1px solid var(--border); color: var(--text);
+      font-size: 14px; line-height: 1.9;
+    }
+    .seo-content h2 { font-size: 18px; font-weight: 700; margin-bottom: 14px;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .seo-content h3 { font-size: 15px; font-weight: 600; margin: 18px 0 8px; color: var(--text); }
+    .seo-content p { color: var(--text-muted); margin-bottom: 12px; }
+    .seo-content ul { list-style: none; padding-right: 0; margin-bottom: 14px; }
+    .seo-content li { padding: 6px 0; color: var(--text-muted);
+      position: relative; padding-right: 22px;
+    }
+    .seo-content li::before { content: '✓'; position: absolute; right: 0;
+      color: var(--accent-1); font-weight: 700;
+    }
+    .faq-item { border: 1px solid var(--border); padding: 14px 18px;
+      margin-bottom: 10px; background: var(--surface-2);
+    }
+    .faq-item summary { cursor: pointer; font-weight: 600;
+      color: var(--text); font-size: 14px; list-style: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::before { content: '▸ '; color: var(--accent-1);
+      transition: transform 0.2s; display: inline-block;
+    }
+    .faq-item[open] summary::before { transform: rotate(90deg); }
+    .faq-item p { margin-top: 10px; color: var(--text-muted);
+      font-size: 13px; line-height: 1.8;
+    }
+    .footer { text-align: center; margin-top: 28px; padding-top: 22px;
+      border-top: 1px solid var(--border); font-size: 13px;
+      color: var(--text-muted); line-height: 1.9;
+    }
+    .footer a { color: var(--accent-1); text-decoration: none; font-weight: 600; }
+    .footer a:hover { color: var(--accent-2); text-decoration: underline; }
+
+    @media (max-width: 860px) {
+      .main-grid { grid-template-columns: 1fr; }
+      .qr-panel { position: static; }
+    }
+    @media (max-width: 640px) {
+      .container { padding: 24px; margin-top: 60px; }
+      h1 { font-size: 20px; }
+      .theme-toggle { width: 42px; height: 42px; font-size: 18px; }
+      .lang-btn { padding: 10px 10px; font-size: 11px; }
+      .top-bar { top: 12px; left: 12px; right: 12px; }
+      .promo-content { flex-wrap: wrap; }
+      .promo-url { font-size: 11px; padding: 6px 10px; }
+      .promo-icon { font-size: 22px; }
+      .type-btn { font-size: 11px; padding: 8px 10px; }
+      .field-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">🌙</button>
+    <nav class="lang-switcher" aria-label="انتخاب زبان">
+      <button class="lang-btn active" data-lang="fa" aria-label="فارسی">🇮🇷 فارسی</button>
+      <button class="lang-btn" data-lang="en" aria-label="English">🇬🇧 English</button>
+      <button class="lang-btn" data-lang="zh" aria-label="中文">🇨🇳 中文</button>
+    </nav>
+  </div>
+
+  <main class="container">
+
+    <a href="https://psoa.ir" target="_blank" rel="noopener" class="promo-banner" aria-label="سایت رسمی امیرعلی کمانی">
+      <div class="promo-content">
+        <span class="promo-icon" aria-hidden="true">🚀</span>
+        <div class="promo-text">
+          <div class="promo-title" data-i18n="promoTitle">سایت رسمی من — psoa.ir</div>
+          <div class="promo-subtitle" data-i18n="promoSubtitle">یه سر بزن، چیزهای جالبی داری!</div>
+        </div>
+        <span class="promo-url">psoa.ir ←</span>
+      </div>
+    </a>
+
+    <h1 id="title">🎨 مولد QR Code آنلاین</h1>
+    <p class="subtitle" id="subtitle">هر چیزی رو به QR Code تبدیل کن — سریع، رایگان، بدون ثبت‌نام</p>
+
+    <div class="main-grid">
+
+      <!-- Left: Type & Fields -->
+      <div>
+
+        <!-- Type Tabs -->
+        <div class="type-tabs" id="typeTabs">
+          <button class="type-btn active" data-type="text" data-i18n="typeText">📝 متن</button>
+          <button class="type-btn" data-type="url" data-i18n="typeUrl">🔗 لینک</button>
+          <button class="type-btn" data-type="email" data-i18n="typeEmail">📧 ایمیل</button>
+          <button class="type-btn" data-type="sms" data-i18n="typeSms">💬 پیامک</button>
+          <button class="type-btn" data-type="phone" data-i18n="typePhone">📞 تلفن</button>
+          <button class="type-btn" data-type="wifi" data-i18n="typeWifi">📶 وای‌فای</button>
+          <button class="type-btn" data-type="vcard" data-i18n="typeVcard">👤 کارت ویزیت</button>
+          <button class="type-btn" data-type="location" data-i18n="typeLocation">📍 موقعیت</button>
+          <button class="type-btn" data-type="event" data-i18n="typeEvent">📅 رویداد</button>
+          <button class="type-btn" data-type="crypto" data-i18n="typeCrypto">💰 ارز دیجیتال</button>
+          <button class="type-btn" data-type="facebook" data-i18n="typeFacebook">📘 فیسبوک</button>
+          <button class="type-btn" data-type="instagram" data-i18n="typeInstagram">📷 اینستاگرام</button>
+          <button class="type-btn" data-type="linkedin" data-i18n="typeLinkedin">💼 لینکدین</button>
+          <button class="type-btn" data-type="whatsapp" data-i18n="typeWhatsapp">💬 واتساپ</button>
+          <button class="type-btn" data-type="youtube" data-i18n="typeYoutube">▶️ یوتیوب</button>
+          <button class="type-btn" data-type="telegram" data-i18n="typeTelegram">✈️ تلگرام</button>
+          <button class="type-btn" data-type="spotify" data-i18n="typeSpotify">🎵 اسپاتیفای</button>
+          <button class="type-btn" data-type="tiktok" data-i18n="typeTiktok">🎵 تیک‌تاک</button>
+        </div>
+
+        <!-- Fields -->
+        <div class="fields" id="fields"></div>
+
+      </div>
+
+      <!-- Right: QR Preview & Settings -->
+      <div class="qr-panel">
+
+        <div class="qr-preview" id="qrPreview">
+          <div class="qr-empty" data-i18n="qrEmpty">داده‌ها را وارد کنید تا QR Code ساخته شود</div>
+        </div>
+
+        <div class="qr-settings">
+          <div class="setting-row">
+            <label data-i18n="settingSize">اندازه (px)</label>
+            <input type="number" id="qrSize" value="512" min="128" max="2048" step="64">
+          </div>
+          <div class="setting-row">
+            <label data-i18n="settingLevel">سطح تصحیح خطا</label>
+            <select id="qrLevel">
+              <option value="L">L — 7%</option>
+              <option value="M" selected>M — 15%</option>
+              <option value="Q">Q — 25%</option>
+              <option value="H">H — 30%</option>
+            </select>
+          </div>
+          <div class="setting-row">
+            <label data-i18n="settingFg">رنگ QR</label>
+            <input type="color" id="qrFg" value="#000000">
+          </div>
+          <div class="setting-row">
+            <label data-i18n="settingBg">رنگ پس‌زمینه</label>
+            <input type="color" id="qrBg" value="#ffffff">
+          </div>
+          <div class="setting-row">
+            <label data-i18n="settingMargin">حاشیه</label>
+            <input type="number" id="qrMargin" value="2" min="0" max="10">
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button id="downloadBtn" class="action primary" data-i18n="btnDownload" disabled>💾 دانلود PNG</button>
+          <button id="copyBtn" class="action" data-i18n="btnCopy" disabled>📋 کپی</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content">
+      <h2 data-i18n="seoH2">درباره‌ی مولد QR Code</h2>
+      <p data-i18n="seoP1">QR Code (کد کیوآر) یک بارکد دوبعدی است که می‌تواند اطلاعات مختلفی مثل متن، لینک، شماره تماس، آدرس ایمیل و غیره را در خود ذخیره کند. این ابزار آنلاین و رایگان به شما امکان می‌دهد تا در لحظه QR Code بسازید و آن را با فرمت PNG دانلود کنید.</p>
+
+      <h3 data-i18n="seoH3Types">انواع QR Code پشتیبانی‌شده</h3>
+      <ul>
+        <li data-i18n="seoLi1">📝 <strong>متن ساده</strong> — هر متنی، حتی چند خطی</li>
+        <li data-i18n="seoLi2">🔗 <strong>لینک URL</strong> — وب‌سایت، فروشگاه، مقاله</li>
+        <li data-i18n="seoLi3">📧 <strong>ایمیل</strong> — آدرس ایمیل آماده</li>
+        <li data-i18n="seoLi4">💬 <strong>پیامک SMS</strong> — شماره + متن آماده</li>
+        <li data-i18n="seoLi5">📞 <strong>تماس تلفنی</strong> — تماس مستقیم با یک اسکن</li>
+        <li data-i18n="seoLi6">📶 <strong>وای‌فای</strong> — اتصال خودکار به شبکه</li>
+        <li data-i18n="seoLi7">👤 <strong>کارت ویزیت vCard</strong> — ذخیره مستقیم مخاطب</li>
+        <li data-i18n="seoLi8">📍 <strong>موقعیت GPS</strong> — مختصات جغرافیایی</li>
+        <li data-i18n="seoLi9">📅 <strong>رویداد تقویم</strong> — تاریخ و ساعت</li>
+        <li data-i18n="seoLi10">💰 <strong>ارز دیجیتال</strong> — آدرس کیف پول</li>
+        <li data-i18n="seoLi11">📱 <strong>شبکه‌های اجتماعی</strong> — فیسبوک، اینستاگرام، لینکدین، واتساپ، یوتیوب، تلگرام، اسپاتیفای، تیک‌تاک</li>
+      </ul>
+
+      <h3 data-i18n="seoH3Faq">سوالات متداول</h3>
+
+      <details class="faq-item">
+        <summary data-i18n="faqQ1">آیا این ابزار رایگانه؟</summary>
+        <p data-i18n="faqA1">بله، کاملاً رایگان و بدون محدودیت. نه ثبت‌نام نیاز داره نه اشتراک.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary data-i18n="faqQ2">QR Codeها منقضی می‌شن؟</summary>
+        <p data-i18n="faqA2">خیر، QR Codeهای ساخته‌شده در این ابزار استاتیک هستند و همیشه کار می‌کنن — حتی اگه سایت ما از دسترس خارج بشه.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary data-i18n="faqQ3">آیا داده‌های من جایی ذخیره می‌شه؟</summary>
+        <p data-i18n="faqA3">خیر، همه‌ی پردازش‌ها در مرورگر خود شما انجام می‌شه. هیچ داده‌ای به سرور ارسال نمی‌شه.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary data-i18n="faqQ4">چه فرمت‌هایی می‌تونم دانلود کنم؟</summary>
+        <p data-i18n="faqA4">در حال حاضر PNG با کیفیت بالا (تا 2048×2048 پیکسل) قابل دانلود است.</p>
+      </details>
+    </section>
+
+    <footer class="footer">
+      <span data-i18n="footerText">برای دیدن لایسنس این وب‌سایت، لطفاً به</span>
+      <a href="https://psoa.ir/licens.html" target="_blank" rel="noopener">psoa.ir/licens.html</a>
+      <span data-i18n="footerText2">مراجعه کنید.</span>
+    </footer>
+
+  </main>
+
+  <script>
+    // ============ TYPE DEFINITIONS ============
+    const TYPES = {
+      text: {
+        fields: [{ id: 'text', type: 'textarea', i18n: 'fieldText', default: '' }],
+        build: d => d.text || ''
+      },
+      url: {
+        fields: [{ id: 'url', type: 'url', i18n: 'fieldUrl', placeholder: 'https://example.com', default: '' }],
+        build: d => d.url || ''
+      },
+      email: {
+        fields: [
+          { id: 'email', type: 'email', i18n: 'fieldEmail', placeholder: 'example@mail.com', default: '' },
+          { id: 'subject', type: 'text', i18n: 'fieldSubject', default: '' },
+          { id: 'body', type: 'textarea', i18n: 'fieldBody', default: '' }
+        ],
+        build: d => `mailto:${d.email || ''}?subject=${encodeURIComponent(d.subject || '')}&body=${encodeURIComponent(d.body || '')}`
+      },
+      sms: {
+        fields: [
+          { id: 'phone', type: 'tel', i18n: 'fieldPhone', placeholder: '+98...', default: '' },
+          { id: 'body', type: 'textarea', i18n: 'fieldMessage', default: '' }
+        ],
+        build: d => `SMSTO:${d.phone || ''}:${d.body || ''}`
+      },
+      phone: {
+        fields: [{ id: 'phone', type: 'tel', i18n: 'fieldPhone', placeholder: '+98...', default: '' }],
+        build: d => `tel:${d.phone || ''}`
+      },
+      wifi: {
+        fields: [
+          { id: 'ssid', type: 'text', i18n: 'fieldSsid', default: '' },
+          { id: 'password', type: 'text', i18n: 'fieldPassword', default: '' },
+          { id: 'encryption', type: 'select', i18n: 'fieldEncryption', options: ['WPA', 'WEP', 'nopass'], default: 'WPA' },
+          { id: 'hidden', type: 'select', i18n: 'fieldHidden', options: ['false', 'true'], default: 'false' }
+        ],
+        build: d => `WIFI:T:${d.encryption || 'WPA'};S:${d.ssid || ''};P:${d.password || ''};H:${d.hidden || 'false'};;`
+      },
+      vcard: {
+        fields: [
+          { id: 'firstName', type: 'text', i18n: 'fieldFirstName', default: '' },
+          { id: 'lastName', type: 'text', i18n: 'fieldLastName', default: '' },
+          { id: 'phone', type: 'tel', i18n: 'fieldPhone', default: '' },
+          { id: 'email', type: 'email', i18n: 'fieldEmail', default: '' },
+          { id: 'org', type: 'text', i18n: 'fieldOrg', default: '' },
+          { id: 'title', type: 'text', i18n: 'fieldTitle', default: '' },
+          { id: 'url', type: 'url', i18n: 'fieldWebsite', default: '' }
+        ],
+        build: d => {
+          let v = 'BEGIN:VCARD\nVERSION:3.0\n';
+          v += `N:${d.lastName || ''};${d.firstName || ''};;;\n`;
+          v += `FN:${(d.firstName || '') + ' ' + (d.lastName || '')}\n`;
+          if (d.org) v += `ORG:${d.org}\n`;
+          if (d.title) v += `TITLE:${d.title}\n`;
+          if (d.phone) v += `TEL:${d.phone}\n`;
+          if (d.email) v += `EMAIL:${d.email}\n`;
+          if (d.url) v += `URL:${d.url}\n`;
+          v += 'END:VCARD';
+          return v;
+        }
+      },
+      location: {
+        fields: [
+          { id: 'lat', type: 'text', i18n: 'fieldLat', placeholder: '35.6892', default: '' },
+          { id: 'lng', type: 'text', i18n: 'fieldLng', placeholder: '51.3890', default: '' }
+        ],
+        build: d => `geo:${d.lat || '0'},${d.lng || '0'}`
+      },
+      event: {
+        fields: [
+          { id: 'title', type: 'text', i18n: 'fieldEventTitle', default: '' },
+          { id: 'location', type: 'text', i18n: 'fieldEventLocation', default: '' },
+          { id: 'start', type: 'text', i18n: 'fieldEventStart', placeholder: '2026-12-31T10:00:00', default: '' },
+          { id: 'end', type: 'text', i18n: 'fieldEventEnd', placeholder: '2026-12-31T12:00:00', default: '' },
+          { id: 'description', type: 'textarea', i18n: 'fieldEventDesc', default: '' }
+        ],
+        build: d => {
+          let v = 'BEGIN:VEVENT\n';
+          v += `SUMMARY:${d.title || ''}\n`;
+          if (d.location) v += `LOCATION:${d.location}\n`;
+          if (d.start) v += `DTSTART:${(d.start || '').replace(/[-:]/g, '')}\n`;
+          if (d.end) v += `DTEND:${(d.end || '').replace(/[-:]/g, '')}\n`;
+          if (d.description) v += `DESCRIPTION:${d.description}\n`;
+          v += 'END:VEVENT';
+          return v;
+        }
+      },
+      crypto: {
+        fields: [
+          { id: 'coin', type: 'select', i18n: 'fieldCoin', options: ['bitcoin', 'ethereum', 'litecoin', 'dogecoin'], default: 'bitcoin' },
+          { id: 'address', type: 'text', i18n: 'fieldAddress', default: '' }
+        ],
+        build: d => `${d.coin || 'bitcoin'}:${d.address || ''}`
+      },
+      facebook: { fields: [{ id: 'url', type: 'url', i18n: 'fieldProfileUrl', placeholder: 'https://facebook.com/yourname', default: '' }], build: d => d.url || '' },
+      instagram: { fields: [{ id: 'url', type: 'url', i18n: 'fieldProfileUrl', placeholder: 'https://instagram.com/yourname', default: '' }], build: d => d.url || '' },
+      linkedin: { fields: [{ id: 'url', type: 'url', i18n: 'fieldProfileUrl', placeholder: 'https://linkedin.com/in/yourname', default: '' }], build: d => d.url || '' },
+      whatsapp: { fields: [{ id: 'phone', type: 'tel', i18n: 'fieldPhone', placeholder: '+98...', default: '' }], build: d => `https://wa.me/${(d.phone || '').replace(/[^0-9]/g, '')}` },
+      youtube: { fields: [{ id: 'url', type: 'url', i18n: 'fieldChannelUrl', placeholder: 'https://youtube.com/@yourchannel', default: '' }], build: d => d.url || '' },
+      telegram: { fields: [{ id: 'username', type: 'text', i18n: 'fieldUsername', placeholder: 'yourname', default: '' }], build: d => `https://t.me/${d.username || ''}` },
+      spotify: { fields: [{ id: 'url', type: 'url', i18n: 'fieldProfileUrl', placeholder: 'https://open.spotify.com/...', default: '' }], build: d => d.url || '' },
+      tiktok: { fields: [{ id: 'username', type: 'text', i18n: 'fieldUsername', placeholder: 'yourname', default: '' }], build: d => `https://tiktok.com/@${d.username || ''}` }
+    };
+
+    let currentType = 'text';
+    let currentDataUrl = null;
+
+    const html = document.documentElement;
+    const titleEl = document.getElementById('title');
+    const subtitleEl = document.getElementById('subtitle');
+    const fieldsEl = document.getElementById('fields');
+    const qrPreview = document.getElementById('qrPreview');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const themeToggle = document.getElementById('themeToggle');
+    const typeBtns = document.querySelectorAll('.type-btn');
+    const langBtns = document.querySelectorAll('.lang-btn');
+    const qrSize = document.getElementById('qrSize');
+    const qrLevel = document.getElementById('qrLevel');
+    const qrFg = document.getElementById('qrFg');
+    const qrBg = document.getElementById('qrBg');
+    const qrMargin = document.getElementById('qrMargin');
+
+    const translations = {
+      fa: {
+        title: '🎨 مولد QR Code آنلاین',
+        subtitle: 'هر چیزی رو به QR Code تبدیل کن — سریع، رایگان، بدون ثبت‌نام',
+        typeText: '📝 متن', typeUrl: '🔗 لینک', typeEmail: '📧 ایمیل', typeSms: '💬 پیامک',
+        typePhone: '📞 تلفن', typeWifi: '📶 وای‌فای', typeVcard: '👤 کارت ویزیت',
+        typeLocation: '📍 موقعیت', typeEvent: '📅 رویداد', typeCrypto: '💰 ارز دیجیتال',
+        typeFacebook: '📘 فیسبوک', typeInstagram: '📷 اینستاگرام', typeLinkedin: '💼 لینکدین',
+        typeWhatsapp: '💬 واتساپ', typeYoutube: '▶️ یوتیوب', typeTelegram: '✈️ تلگرام',
+        typeSpotify: '🎵 اسپاتیفای', typeTiktok: '🎵 تیک‌تاک',
+        fieldText: 'متن', fieldUrl: 'لینک URL', fieldEmail: 'ایمیل', fieldSubject: 'موضوع',
+        fieldBody: 'متن پیام', fieldPhone: 'شماره تماس', fieldMessage: 'پیام',
+        fieldSsid: 'نام شبکه (SSID)', fieldPassword: 'رمز عبور',
+        fieldEncryption: 'نوع رمزنگاری', fieldHidden: 'شبکه مخفی',
+        fieldFirstName: 'نام', fieldLastName: 'نام خانوادگی', fieldOrg: 'سازمان',
+        fieldTitle: 'عنوان شغلی', fieldWebsite: 'وب‌سایت',
+        fieldLat: 'عرض جغرافیایی (Lat)', fieldLng: 'طول جغرافیایی (Lng)',
+        fieldEventTitle: 'عنوان رویداد', fieldEventLocation: 'مکان',
+        fieldEventStart: 'شروع (YYYY-MM-DDTHH:MM:SS)', fieldEventEnd: 'پایان',
+        fieldEventDesc: 'توضیحات', fieldCoin: 'ارز', fieldAddress: 'آدرس',
+        fieldProfileUrl: 'آدرس پروفایل', fieldChannelUrl: 'آدرس کانال',
+        fieldUsername: 'نام کاربری',
+        settingSize: 'اندازه (px)', settingLevel: 'سطح تصحیح خطا',
+        settingFg: 'رنگ QR', settingBg: 'رنگ پس‌زمینه', settingMargin: 'حاشیه',
+        btnDownload: '💾 دانلود PNG', btnCopy: '📋 کپی',
+        copied: '✅ کپی شد!', downloaded: '✅ دانلود شد!',
+        qrEmpty: 'داده‌ها را وارد کنید تا QR Code ساخته شود',
+        promoTitle: 'سایت رسمی من — psoa.ir',
+        promoSubtitle: 'یه سر بزن، چیزهای جالبی داری!',
+        footerText: 'برای دیدن لایسنس این وب‌سایت، لطفاً به',
+        footerText2: 'مراجعه کنید.',
+        seoH2: 'درباره‌ی مولد QR Code',
+        seoP1: 'QR Code (کد کیوآر) یک بارکد دوبعدی است که می‌تواند اطلاعات مختلفی مثل متن، لینک، شماره تماس، آدرس ایمیل و غیره را در خود ذخیره کند. این ابزار آنلاین و رایگان به شما امکان می‌دهد تا در لحظه QR Code بسازید و آن را با فرمت PNG دانلود کنید.',
+        seoH3Types: 'انواع QR Code پشتیبانی‌شده',
+        seoLi1: '📝 متن ساده — هر متنی، حتی چند خطی',
+        seoLi2: '🔗 لینک URL — وب‌سایت، فروشگاه، مقاله',
+        seoLi3: '📧 ایمیل — آدرس ایمیل آماده',
+        seoLi4: '💬 پیامک SMS — شماره + متن آماده',
+        seoLi5: '📞 تماس تلفنی — تماس مستقیم با یک اسکن',
+        seoLi6: '📶 وای‌فای — اتصال خودکار به شبکه',
+        seoLi7: '👤 کارت ویزیت vCard — ذخیره مستقیم مخاطب',
+        seoLi8: '📍 موقعیت GPS — مختصات جغرافیایی',
+        seoLi9: '📅 رویداد تقویم — تاریخ و ساعت',
+        seoLi10: '💰 ارز دیجیتال — آدرس کیف پول',
+        seoLi11: '📱 شبکه‌های اجتماعی — فیسبوک، اینستاگرام، لینکدین، واتساپ، یوتیوب، تلگرام، اسپاتیفای، تیک‌تاک',
+        seoH3Faq: 'سوالات متداول',
+        faqQ1: 'آیا این ابزار رایگانه؟',
+        faqA1: 'بله، کاملاً رایگان و بدون محدودیت. نه ثبت‌نام نیاز داره نه اشتراک.',
+        faqQ2: 'QR Codeها منقضی می‌شن؟',
+        faqA2: 'خیر، QR Codeهای ساخته‌شده در این ابزار استاتیک هستند و همیشه کار می‌کنن — حتی اگه سایت ما از دسترس خارج بشه.',
+        faqQ3: 'آیا داده‌های من جایی ذخیره می‌شه؟',
+        faqA3: 'خیر، همه‌ی پردازش‌ها در مرورگر خود شما انجام می‌شه. هیچ داده‌ای به سرور ارسال نمی‌شه.',
+        faqQ4: 'چه فرمت‌هایی می‌تونم دانلود کنم؟',
+        faqA4: 'در حال حاضر PNG با کیفیت بالا (تا 2048×2048 پیکسل) قابل دانلود است.'
+      },
+      en: {
+        title: '🎨 QR Code Generator Online',
+        subtitle: 'Convert anything into a QR Code — fast, free, no signup',
+        typeText: '📝 Text', typeUrl: '🔗 URL', typeEmail: '📧 Email', typeSms: '💬 SMS',
+        typePhone: '📞 Phone', typeWifi: '📶 WiFi', typeVcard: '👤 vCard',
+        typeLocation: '📍 Location', typeEvent: '📅 Event', typeCrypto: '💰 Crypto',
+        typeFacebook: '📘 Facebook', typeInstagram: '📷 Instagram', typeLinkedin: '💼 LinkedIn',
+        typeWhatsapp: '💬 WhatsApp', typeYoutube: '▶️ YouTube', typeTelegram: '✈️ Telegram',
+        typeSpotify: '🎵 Spotify', typeTiktok: '🎵 TikTok',
+        fieldText: 'Text', fieldUrl: 'URL', fieldEmail: 'Email', fieldSubject: 'Subject',
+        fieldBody: 'Message Body', fieldPhone: 'Phone', fieldMessage: 'Message',
+        fieldSsid: 'Network Name (SSID)', fieldPassword: 'Password',
+        fieldEncryption: 'Encryption', fieldHidden: 'Hidden Network',
+        fieldFirstName: 'First Name', fieldLastName: 'Last Name', fieldOrg: 'Organization',
+        fieldTitle: 'Job Title', fieldWebsite: 'Website',
+        fieldLat: 'Latitude', fieldLng: 'Longitude',
+        fieldEventTitle: 'Event Title', fieldEventLocation: 'Location',
+        fieldEventStart: 'Start (YYYY-MM-DDTHH:MM:SS)', fieldEventEnd: 'End',
+        fieldEventDesc: 'Description', fieldCoin: 'Coin', fieldAddress: 'Address',
+        fieldProfileUrl: 'Profile URL', fieldChannelUrl: 'Channel URL',
+        fieldUsername: 'Username',
+        settingSize: 'Size (px)', settingLevel: 'Error Correction',
+        settingFg: 'QR Color', settingBg: 'Background', settingMargin: 'Margin',
+        btnDownload: '💾 Download PNG', btnCopy: '📋 Copy',
+        copied: '✅ Copied!', downloaded: '✅ Downloaded!',
+        qrEmpty: 'Enter data to generate a QR Code',
+        promoTitle: 'My official website — psoa.ir',
+        promoSubtitle: 'Drop by, there is something interesting!',
+        footerText: 'To view the license of this website, please visit',
+        footerText2: '.',
+        seoH2: 'About the QR Code Generator',
+        seoP1: 'A QR Code is a two-dimensional barcode that can store various types of information such as text, links, phone numbers, email addresses, and more. This free online tool lets you generate a QR Code instantly and download it as a PNG file.',
+        seoH3Types: 'Supported QR Code Types',
+        seoLi1: '📝 Plain Text — any text, even multi-line',
+        seoLi2: '🔗 URL — websites, stores, articles',
+        seoLi3: '📧 Email — pre-filled email address',
+        seoLi4: '💬 SMS — pre-filled phone + message',
+        seoLi5: '📞 Phone — direct call with one scan',
+        seoLi6: '📶 WiFi — auto-connect to network',
+        seoLi7: '👤 vCard — save contact instantly',
+        seoLi8: '📍 GPS Location — geographic coordinates',
+        seoLi9: '📅 Calendar Event — date and time',
+        seoLi10: '💰 Crypto — wallet address',
+        seoLi11: '📱 Social Media — Facebook, Instagram, LinkedIn, WhatsApp, YouTube, Telegram, Spotify, TikTok',
+        seoH3Faq: 'Frequently Asked Questions',
+        faqQ1: 'Is this tool free?',
+        faqA1: 'Yes, completely free with no limits. No signup or subscription required.',
+        faqQ2: 'Do QR Codes expire?',
+        faqA2: 'No, QR Codes generated by this tool are static and always work — even if our site goes offline.',
+        faqQ3: 'Is my data stored anywhere?',
+        faqA3: 'No, all processing happens in your browser. No data is sent to any server.',
+        faqQ4: 'What formats can I download?',
+        faqA4: 'Currently PNG in high quality (up to 2048×2048 pixels) is available.'
+      },
+      zh: {
+        title: '🎨 在线 QR 码生成器',
+        subtitle: '将任何内容转换为 QR 码 — 快速、免费、无需注册',
+        typeText: '📝 文本', typeUrl: '🔗 链接', typeEmail: '📧 邮件', typeSms: '💬 短信',
+        typePhone: '📞 电话', typeWifi: '📶 WiFi', typeVcard: '👤 名片',
+        typeLocation: '📍 位置', typeEvent: '📅 事件', typeCrypto: '💰 加密货币',
+        typeFacebook: '📘 Facebook', typeInstagram: '📷 Instagram', typeLinkedin: '💼 LinkedIn',
+        typeWhatsapp: '💬 WhatsApp', typeYoutube: '▶️ YouTube', typeTelegram: '✈️ Telegram',
+        typeSpotify: '🎵 Spotify', typeTiktok: '🎵 TikTok',
+        fieldText: '文本', fieldUrl: '链接', fieldEmail: '邮箱', fieldSubject: '主题',
+        fieldBody: '消息正文', fieldPhone: '电话', fieldMessage: '消息',
+        fieldSsid: '网络名称 (SSID)', fieldPassword: '密码',
+        fieldEncryption: '加密类型', fieldHidden: '隐藏网络',
+        fieldFirstName: '名', fieldLastName: '姓', fieldOrg: '组织',
+        fieldTitle: '职位', fieldWebsite: '网站',
+        fieldLat: '纬度', fieldLng: '经度',
+        fieldEventTitle: '事件标题', fieldEventLocation: '地点',
+        fieldEventStart: '开始 (YYYY-MM-DDTHH:MM:SS)', fieldEventEnd: '结束',
+        fieldEventDesc: '描述', fieldCoin: '币种', fieldAddress: '地址',
+        fieldProfileUrl: '个人资料链接', fieldChannelUrl: '频道链接',
+        fieldUsername: '用户名',
+        settingSize: '尺寸 (px)', settingLevel: '纠错级别',
+        settingFg: 'QR 颜色', settingBg: '背景色', settingMargin: '边距',
+        btnDownload: '💾 下载 PNG', btnCopy: '📋 复制',
+        copied: '✅ 已复制！', downloaded: '✅ 已下载！',
+        qrEmpty: '输入数据以生成 QR 码',
+        promoTitle: '我的官方网站 — psoa.ir',
+        promoSubtitle: '来看看，会很有趣！',
+        footerText: '要查看本网站的许可证，请访问',
+        footerText2: '。',
+        seoH2: '关于 QR 码生成器',
+        seoP1: 'QR 码是一种二维条形码，可以存储各种类型的信息，如文本、链接、电话号码、电子邮件地址等。这个免费的在线工具让您立即生成 QR 码并将其下载为 PNG 文件。',
+        seoH3Types: '支持的 QR 码类型',
+        seoLi1: '📝 纯文本 — 任何文本，甚至多行',
+        seoLi2: '🔗 URL — 网站、商店、文章',
+        seoLi3: '📧 邮件 — 预填电子邮件地址',
+        seoLi4: '💬 短信 — 预填电话 + 消息',
+        seoLi5: '📞 电话 — 一扫即可直接呼叫',
+        seoLi6: '📶 WiFi — 自动连接网络',
+        seoLi7: '👤 名片 — 立即保存联系人',
+        seoLi8: '📍 GPS 位置 — 地理坐标',
+        seoLi9: '📅 日历事件 — 日期和时间',
+        seoLi10: '💰 加密货币 — 钱包地址',
+        seoLi11: '📱 社交媒体 — Facebook、Instagram、LinkedIn、WhatsApp、YouTube、Telegram、Spotify、TikTok',
+        seoH3Faq: '常见问题',
+        faqQ1: '这个工具免费吗？',
+        faqA1: '是的，完全免费，无任何限制。无需注册或订阅。',
+        faqQ2: 'QR 码会过期吗？',
+        faqA2: '不会，此工具生成的 QR 码是静态的，始终有效 —— 即使我们的网站离线。',
+        faqQ3: '我的数据会被存储吗？',
+        faqA3: '不会，所有处理都在您的浏览器中进行。不会向任何服务器发送数据。',
+        faqQ4: '可以下载哪些格式？',
+        faqA4: '目前可下载高质量 PNG（最高 2048×2048 像素）。'
+      }
+    };
+
+    const rtlLangs = ['fa'];
+    let currentLang = localStorage.getItem('qr_lang') || 'fa';
+    if (!translations[currentLang]) currentLang = 'fa';
+    let currentTheme = localStorage.getItem('qr_theme') || 'light';
+
+    function applyTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+      currentTheme = theme;
+      localStorage.setItem('qr_theme', theme);
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', theme === 'dark' ? '#0a0a0a' : '#f5f7fa');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    function t(key) {
+      return translations[currentLang][key] || translations.en[key] || key;
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('qr_lang', lang);
+      const dir = rtlLangs.includes(lang) ? 'rtl' : 'ltr';
+      html.setAttribute('dir', dir);
+      html.setAttribute('lang', lang);
+
+      titleEl.textContent = t('title');
+      subtitleEl.textContent = t('subtitle');
+      document.title = t('title');
+
+      langBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      // Update all data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        el.textContent = t(key);
+      });
+
+      // Re-render fields to update labels
+      renderFields();
+    }
+
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+    });
+
+    // ============ FIELD RENDERING ============
+    function renderFields() {
+      const type = TYPES[currentType];
+      if (!type) return;
+
+      const saved = JSON.parse(sessionStorage.getItem('qr_data_' + currentType) || '{}');
+      fieldsEl.innerHTML = '';
+
+      type.fields.forEach(field => {
+        const group = document.createElement('div');
+        group.className = 'field-group';
+
+        const label = document.createElement('label');
+        label.className = 'field-label';
+        label.textContent = t(field.i18n) || field.id;
+        label.setAttribute('for', field.id);
+        group.appendChild(label);
+
+        let input;
+        if (field.type === 'textarea') {
+          input = document.createElement('textarea');
+        } else if (field.type === 'select') {
+          input = document.createElement('select');
+          field.options.forEach(opt => {
+            const o = document.createElement('option');
+            o.value = opt;
+            o.textContent = opt;
+            input.appendChild(o);
+          });
+        } else {
+          input = document.createElement('input');
+          input.type = field.type;
+        }
+
+        input.id = field.id;
+        if (field.placeholder) input.placeholder = field.placeholder;
+        if (saved[field.id]) input.value = saved[field.id];
+        else if (field.default) input.value = field.default;
+
+        input.addEventListener('input', () => {
+          saveField(field.id, input.value);
+          generateQR();
+        });
+        input.addEventListener('change', () => {
+          saveField(field.id, input.value);
+          generateQR();
+        });
+
+        group.appendChild(input);
+        fieldsEl.appendChild(group);
+      });
+
+      generateQR();
+    }
+
+    function saveField(id, value) {
+      const saved = JSON.parse(sessionStorage.getItem('qr_data_' + currentType) || '{}');
+      saved[id] = value;
+      sessionStorage.setItem('qr_data_' + currentType, JSON.stringify(saved));
+    }
+
+    function getFormData() {
+      const type = TYPES[currentType];
+      const data = {};
+      type.fields.forEach(f => {
+        const el = document.getElementById(f.id);
+        if (el) data[f.id] = el.value;
+      });
+      return data;
+    }
+
+    // ============ QR GENERATION ============
+    async function generateQR() {
+      const type = TYPES[currentType];
+      if (!type) return;
+
+      const data = getFormData();
+      const text = type.build(data);
+
+      if (!text || !text.trim()) {
+        qrPreview.innerHTML = `<div class="qr-empty">${t('qrEmpty')}</div>`;
+        downloadBtn.disabled = true;
+        copyBtn.disabled = true;
+        currentDataUrl = null;
+        return;
+      }
+
+      try {
+        const canvas = document.createElement('canvas');
+        await QRCode.toCanvas(canvas, text, {
+          width: parseInt(qrSize.value) || 512,
+          margin: parseInt(qrMargin.value) || 2,
+          errorCorrectionLevel: qrLevel.value || 'M',
+          color: {
+            dark: qrFg.value || '#000000',
+            light: qrBg.value || '#ffffff'
+          }
+        });
+
+        qrPreview.innerHTML = '';
+        qrPreview.appendChild(canvas);
+        currentDataUrl = canvas.toDataURL('image/png');
+        downloadBtn.disabled = false;
+        copyBtn.disabled = false;
+      } catch (err) {
+        qrPreview.innerHTML = `<div class="qr-empty">⚠️ ${err.message || 'Error'}</div>`;
+        downloadBtn.disabled = true;
+        copyBtn.disabled = true;
+      }
+    }
+
+    // ============ TYPE SWITCHING ============
+    typeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('.type-btn.active').classList.remove('active');
+        btn.classList.add('active');
+        currentType = btn.dataset.type;
+        renderFields();
+      });
+    });
+
+    // ============ SETTINGS ============
+    [qrSize, qrLevel, qrFg, qrBg, qrMargin].forEach(el => {
+      el.addEventListener('input', generateQR);
+      el.addEventListener('change', generateQR);
+    });
+
+    // ============ DOWNLOAD ============
+    downloadBtn.addEventListener('click', () => {
+      if (!currentDataUrl) return;
+      const a = document.createElement('a');
+      a.href = currentDataUrl;
+      a.download = `qrcode-${currentType}-${Date.now()}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      const orig = downloadBtn.textContent;
+      downloadBtn.textContent = t('downloaded');
+      setTimeout(() => downloadBtn.textContent = orig, 1500);
+    });
+
+    // ============ COPY ============
+    copyBtn.addEventListener('click', async () => {
+      if (!currentDataUrl) return;
+      try {
+        const blob = await (await fetch(currentDataUrl)).blob();
+        await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+        const orig = copyBtn.textContent;
+        copyBtn.textContent = t('copied');
+        setTimeout(() => copyBtn.textContent = orig, 1500);
+      } catch (err) {
+        console.error('Copy failed:', err);
+      }
+    });
+
+    // ============ INIT ============
+    applyTheme(currentTheme);
+    applyLanguage(currentLang);
+  </script>
+</body>
+</html>
